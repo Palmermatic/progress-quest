@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { timer } from 'rxjs';
+import { timer, Observable, Subject, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-action-bar',
   templateUrl: './action-bar.component.html',
@@ -8,20 +9,11 @@ import { timer } from 'rxjs';
 export class ActionBarComponent implements OnInit {
   value = 0;
   max = 100;
-  timeLeft = 60;
-  interval;
-  subscribeTimer: any;
+  timer$: Observable<any>;
+  private reset$ = new Subject();
 
   constructor() {
-    setInterval(() => {
-      if (this.value >= this.max) {
-        this.value = 0;
-        this.tick();
-      }
-      else {
-        this.value++;
-      }
-    }, 100);
+    this.observableTimer();
   }
 
   ngOnInit(): void { }
@@ -30,25 +22,16 @@ export class ActionBarComponent implements OnInit {
 
   }
 
-  oberserableTimer() {
-    const source = timer(1000, 2000);
-    const abc = source.subscribe(val => {
-      console.log(val, '-');
-      this.subscribeTimer = this.timeLeft - val;
+  observableTimer() {
+    this.timer$ = timer(100, 100).pipe(takeUntil(this.reset$));
+    this.timer$.subscribe(val => {
+      if (val === this.max) {
+        this.value = 0;
+        this.reset$.next();
+        this.observableTimer();
+      }
+      else { this.value = val; }
     });
   }
 
-  startTimer() {
-    this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
-        this.timeLeft--;
-      } else {
-        this.timeLeft = 60;
-      }
-    },1000)
-  }
-
-  pauseTimer() {
-    clearInterval(this.interval);
-  }
 }
