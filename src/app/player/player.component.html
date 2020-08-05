@@ -1,0 +1,11 @@
+<div>
+  <label>name:
+    <input [(ngModel)]="player.name" placeholder="name" />
+  </label>
+</div>
+<p>Name: {{player.name}}</p>
+<p>Start time: {{player.startTime | date:'dd HH:mm:ss'}}</p>
+<p>Age: {{age}}</p>
+
+<h2>Attributes</h2>
+<app-attribute-list [attributes]="player.attributes"></app-attribute-list>

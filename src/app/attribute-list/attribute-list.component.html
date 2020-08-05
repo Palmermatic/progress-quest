@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <p *ngFor="let attribute of attributes" [ngbPopover]="popContent" [popoverTitle]="popTitle" triggers="mouseenter:mouseleave">
+    <span class="badge">{{attribute.name}}</span>
+    <ngb-progressbar type="success" [value]="attribute.value" [showValue]="true"></ngb-progressbar>
+
+    <ng-template #popTitle>{{attribute.name | uppercase}}</ng-template>
+    <ng-template #popContent>
+      <app-attribute-detail [attribute]="attribute"></app-attribute-detail>
+    </ng-template>
+
+  </p>
+</div>

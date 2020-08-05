@@ -1,0 +1,10 @@
+
+  <h2>Messages</h2>
+  <ngb-toast *ngIf="show" (hide)="close()" [autohide]="false">
+
+  <div *ngFor='let message of messageService.messages'>
+    {{message.textOrTpl}}
+    <button class="close" (click)="messageService.clear(message)">x</button>
+  </div>
+
+</ngb-toast>
