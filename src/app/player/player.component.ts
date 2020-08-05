@@ -17,8 +17,7 @@ export class PlayerComponent implements OnInit {
     attributes: null
   };
 
-  age = new Date().getMilliseconds() - this.player.startTime.getMilliseconds();
-
+  age: number;
 
   constructor(private playerService: PlayerService, private messageService: MessageService) { }
 

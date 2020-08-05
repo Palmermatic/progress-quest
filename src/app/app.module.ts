@@ -12,6 +12,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ActionBarComponent } from './action-bar/action-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AttributeListComponent,
     AttributeDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ActionBarComponent
   ],
   imports: [
     BrowserModule,
