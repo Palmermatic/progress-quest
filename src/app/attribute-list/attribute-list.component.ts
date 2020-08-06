@@ -9,7 +9,7 @@ import { Player } from '../player';
 })
 export class AttributeListComponent implements OnInit {
 
-  @Input() attributes: Attribute[];
+  @Input() player: Player;
 
   constructor() { }
 

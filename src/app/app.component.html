@@ -1,5 +1,4 @@
 <h1>{{title}}</h1>
-<app-action-bar></app-action-bar>
 <nav ngbNav #nav="ngbNav" class="nav-tabs">
   <ng-container ngbNavItem>
     <a ngbNavLink routerLink="/dashboard">Dashboard</a>
@@ -11,5 +10,7 @@
 <ng-template ngvNavContent>
 
 </ng-template>
-<router-outlet></router-outlet>
+<router-outlet>
+<app-action-bar></app-action-bar>
+</router-outlet>
 <app-messages></app-messages>

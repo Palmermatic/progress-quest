@@ -11,22 +11,16 @@ import { MessageService } from '../message.service';
 })
 export class PlayerComponent implements OnInit {
 
-  player: Player = {
-    name: 'noob',
-    startTime: new Date(),
-    attributes: null
-  };
-
-  age: number;
+  player: Player;
 
   constructor(private playerService: PlayerService, private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.getAttributes();
+    this.getPlayer();
   }
 
-  getAttributes(): void {
-    this.playerService.getAttributes()
-      .subscribe(attrs => this.player.attributes = attrs);
+  getPlayer(): void {
+    this.playerService.getPlayer()
+      .subscribe(player => this.player = player);
   }
 }

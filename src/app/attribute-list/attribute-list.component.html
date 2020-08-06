@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <p *ngFor="let attribute of attributes" [ngbPopover]="popContent" [popoverTitle]="popTitle" triggers="mouseenter:mouseleave">
+  <p *ngFor="let attribute of player.attributes" [ngbPopover]="popContent" [popoverTitle]="popTitle" triggers="mouseenter:mouseleave">
     <span class="badge">{{attribute.name}}</span>
     <ngb-progressbar type="success" [value]="attribute.value" [showValue]="true"></ngb-progressbar>
 

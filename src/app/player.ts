@@ -1,7 +1,7 @@
 import { Attribute } from './attribute';
 
-export interface Player {
-  name: string;
-  startTime: Date;
+export class Player {
   attributes: Attribute[];
+
+  constructor() { }
 }

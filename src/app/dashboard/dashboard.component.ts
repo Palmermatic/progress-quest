@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../player';
 import { PlayerService } from '../player.service';
-import { Attribute } from '../attribute';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,16 +9,16 @@ import { Attribute } from '../attribute';
 })
 export class DashboardComponent implements OnInit {
 
-  attributes: Attribute[];
+  player: Player;
 
   constructor(private playerService: PlayerService) { }
 
   ngOnInit(): void {
-    this.getAttributes();
+    this.getPlayer();
   }
 
-  getAttributes(): void {
-    this.playerService.getAttributes()
-      .subscribe(attrs => this.attributes = attrs);
+  getPlayer(): void {
+    this.playerService.getPlayer()
+      .subscribe(player => this.player = player);
   }
 }
