@@ -1,6 +1,7 @@
 {
   "name": "progress-quest",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "homepage": "https://palmermatic.github.io/progress-quest/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
